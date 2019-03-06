@@ -1,0 +1,78 @@
+
+* { margin: 0; padding: 0; }
+body { font: 14px/1.5 'Microsoft Yahei'; color: rgba(0, 0, 0, .65); }
+
+@-webkit-keyframes modalIn {
+  from { opacity: 0; }
+}
+@keyframes modalIn {
+  from { opacity: 0; }
+}
+@-webkit-keyframes goldRotate {
+  from { -webkit-transform: translateX(-50%) rotateY(-360deg); transform: translateX(-50%) rotateY(-360deg); }
+  to { -webkit-transform: translateX(-50%) rotateY(0); transform: translateX(-50%) rotateY(0); }
+}
+@keyframes goldRotate {
+  from { -webkit-transform: translateX(-50%) rotateY(-360deg); transform: translateX(-50%) rotateY(-360deg); }
+  to { -webkit-transform: translateX(-50%) rotateY(0); transform: translateX(-50%) rotateY(0); }
+}
+@-webkit-keyframes hideGold {
+  to { opacity: 0; }
+}
+@keyframes hideGold {
+  to { opacity: 0; }
+}
+@-webkit-keyframes openCoupon {
+  to { top: -64px; }
+}
+@keyframes openCoupon {
+  to { top: -64px; }
+}
+@-webkit-keyframes zoomIn {
+  from { opacity: 0; -webkit-transform: translate(-50%, -50%) scale3d(0.3, 0.5, 0.3); transform: translate(-50%, -50%) scale3d(0.3, 0.5, 0.3); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; -webkit-transform: translate(-50%, -50%) scale3d(0.3, 0.5, 0.3); transform: translate(-50%, -50%) scale3d(0.3, 0.5, 0.3); }
+}
+@-webkit-keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@-webkit-keyframes swing {
+  20% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); }
+  40% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); }
+  60% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); }
+  80% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); }
+  100% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 0deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 0deg); }
+}
+@keyframes swing {
+  20% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); }
+  40% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); }
+  60% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 5deg); }
+  80% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, -5deg); }
+  100% { -webkit-transform: translate(-50%, -50%) rotate3d(0, 0, 1, 0deg); transform: translate(-50%, -50%) rotate3d(0, 0, 1, 0deg); }
+}
+
+.container p { padding: 10px; }
+.container .btn { display: inline-block; margin-right: 10px; padding: 0 15px; height: 30px; line-height: 30px; border-radius: 4px; border: 1px solid #e5e5e5; cursor: pointer; }
+.container .btn:hover { border-color: #40a9ff; color: #40a9ff; }
+
+.coupon-mask { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 11; -webkit-animation: modalIn .3s backwards; animation: modalIn .3s backwards; }
+.coupon-modal { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 185px; height: 232px; background-image: url(../img/coupon-success-bg.png); background-size: 100% 100%; overflow: hidden; }
+.coupon-modal .content { opacity: 0; -webkit-animation: fadeIn .2s 1.8s both; animation: fadeIn .2s 1.8s both; }
+.coupon-modal .content .btn { display: block; margin: 18px auto 0; width: 130px; height: 32px; line-height: 32px; font-size: 13px; border-radius: 5px; color: #f12549; background-color: #f5eddf; text-align: center; }
+.coupon-modal .coupon-gold-icon { position: absolute; top: 31px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); width: 60px; height: 62px; background-image: url(../img/coupon-gold.png); background-size: 100% 100%; z-index: 15; }
+.coupon-modal .coupon-top-mask { position: absolute; top: 0; left: 0; width: 185px; height: 64px; background-image: url(../img/coupon-mask.png); background-size: 100% 100%; z-index: 12; }
+.receive-success { -webkit-animation: zoomIn .3s both; animation: zoomIn .3s both; }
+.receive-success .coupon-top-mask { -webkit-animation: openCoupon .5s 1.8s both; animation: openCoupon .5s 1.8s both; }
+.receive-success .coupon-gold-icon { -webkit-animation: goldRotate 1.5s .3s backwards, hideGold .4s 1.8s forwards; animation: goldRotate 1.5s .3s backwards, hideGold .4s 1.8s forwards; }
+.receive-success .content { padding-top: 75px; }
+.receive-success .content p { line-height: 1; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-align: center; }
+.receive-success .content .amount { padding: 18px 0; font-size: 12px; color: white; }
+.receive-success .content .amount span { font-size: 30px; }
+.receive-error { -webkit-animation: zoomIn .3s backwards, swing .3s 1.8s forwards; animation: zoomIn .3s backwards, swing .3s 1.8s forwards; }
+.receive-error .coupon-gold-icon { -webkit-animation: goldRotate 1.5s .3s both; animation: goldRotate 1.5s .3s both; }
+.receive-error .content { padding-top: 120px; }
+.receive-error .content p { font-size: 15px; color: #fff; text-align: center; }
